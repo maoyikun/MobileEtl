@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlContractMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlContract">
+    <result column="CONTRACT_ID" jdbcType="DECIMAL" property="contractId" />
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="CONTRACT_TYPE" jdbcType="VARCHAR" property="contractType" />
+    <result column="CONTRACT_CODE" jdbcType="VARCHAR" property="contractCode" />
+    <result column="CONTRACT_NAME" jdbcType="VARCHAR" property="contractName" />
+    <result column="CONTRACT_START_TIME" jdbcType="DATE" property="contractStartTime" />
+    <result column="CONTRACT_END_TIME" jdbcType="DATE" property="contractEndTime" />
+    <result column="CONTRACT_REMARK" jdbcType="VARCHAR" property="contractRemark" />
+    <result column="CONTRACT_HOUSE_OWNER" jdbcType="VARCHAR" property="contractHouseOwner" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlContract">
+    insert into OPS_ODS_CHL_CONTRACT_D (CONTRACT_ID, CHANNEL_ID, CONTRACT_TYPE, 
+      CONTRACT_CODE, CONTRACT_NAME, CONTRACT_START_TIME, 
+      CONTRACT_END_TIME, CONTRACT_REMARK, CONTRACT_HOUSE_OWNER, 
+      STATE, CREATE_TIME, CREATE_OPER_ID, 
+      UPDATE_TIME, UPDATE_OPER_ID, REMARK, 
+      EXT_JSON)
+    values (#{contractId,jdbcType=DECIMAL}, #{channelId,jdbcType=DECIMAL}, #{contractType,jdbcType=VARCHAR}, 
+      #{contractCode,jdbcType=VARCHAR}, #{contractName,jdbcType=VARCHAR}, #{contractStartTime,jdbcType=DATE}, 
+      #{contractEndTime,jdbcType=DATE}, #{contractRemark,jdbcType=VARCHAR}, #{contractHouseOwner,jdbcType=VARCHAR}, 
+      #{state,jdbcType=DECIMAL}, #{createTime,jdbcType=DATE}, #{createOperId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{extJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlContract">
+    insert into OPS_ODS_CHL_CONTRACT_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractId != null">
+        CONTRACT_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="contractType != null">
+        CONTRACT_TYPE,
+      </if>
+      <if test="contractCode != null">
+        CONTRACT_CODE,
+      </if>
+      <if test="contractName != null">
+        CONTRACT_NAME,
+      </if>
+      <if test="contractStartTime != null">
+        CONTRACT_START_TIME,
+      </if>
+      <if test="contractEndTime != null">
+        CONTRACT_END_TIME,
+      </if>
+      <if test="contractRemark != null">
+        CONTRACT_REMARK,
+      </if>
+      <if test="contractHouseOwner != null">
+        CONTRACT_HOUSE_OWNER,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractId != null">
+        #{contractId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="contractType != null">
+        #{contractType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCode != null">
+        #{contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null">
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStartTime != null">
+        #{contractStartTime,jdbcType=DATE},
+      </if>
+      <if test="contractEndTime != null">
+        #{contractEndTime,jdbcType=DATE},
+      </if>
+      <if test="contractRemark != null">
+        #{contractRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="contractHouseOwner != null">
+        #{contractHouseOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

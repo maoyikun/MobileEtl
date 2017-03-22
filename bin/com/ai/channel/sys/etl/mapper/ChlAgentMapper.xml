@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlAgentMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlAgent">
+    <result column="AGENT_ID" jdbcType="DECIMAL" property="agentId" />
+    <result column="AGENT_NAME" jdbcType="VARCHAR" property="agentName" />
+    <result column="BUSINESS_LICENSE" jdbcType="VARCHAR" property="businessLicense" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlAgent">
+    insert into OPS_D_BAS_CHL_AGENT (AGENT_ID, AGENT_NAME, BUSINESS_LICENSE, 
+      REMARK)
+    values (#{agentId,jdbcType=DECIMAL}, #{agentName,jdbcType=VARCHAR}, #{businessLicense,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlAgent">
+    insert into OPS_D_BAS_CHL_AGENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="agentId != null">
+        AGENT_ID,
+      </if>
+      <if test="agentName != null">
+        AGENT_NAME,
+      </if>
+      <if test="businessLicense != null">
+        BUSINESS_LICENSE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="agentId != null">
+        #{agentId,jdbcType=DECIMAL},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

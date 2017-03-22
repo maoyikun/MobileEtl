@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlBaseMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlBase">
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CHANNEL_CODE" jdbcType="VARCHAR" property="channelCode" />
+    <result column="CHANNEL_NAME" jdbcType="VARCHAR" property="channelName" />
+    <result column="TELECOM_OPERATOR_ID" jdbcType="VARCHAR" property="telecomOperatorId" />
+    <result column="BUSINESS_MODE" jdbcType="VARCHAR" property="businessMode" />
+    <result column="BUSINESS_NATURE" jdbcType="VARCHAR" property="businessNature" />
+    <result column="CONSTRUCT_MODE" jdbcType="VARCHAR" property="constructMode" />
+    <result column="CHANNEL_LAYER" jdbcType="VARCHAR" property="channelLayer" />
+    <result column="CHANNEL_STAR_LEVEL" jdbcType="VARCHAR" property="channelStarLevel" />
+    <result column="CHL_FIRST_KIND_ID" jdbcType="VARCHAR" property="chlFirstKindId" />
+    <result column="CHL_SECOND_KIND_ID" jdbcType="VARCHAR" property="chlSecondKindId" />
+    <result column="CHL_THIRD_KIND_ID" jdbcType="VARCHAR" property="chlThirdKindId" />
+    <result column="CHL_FORTH_KIND_ID" jdbcType="VARCHAR" property="chlForthKindId" />
+    <result column="CHL_KIND_ID" jdbcType="VARCHAR" property="chlKindId" />
+    <result column="CHL_KIND_NAME" jdbcType="VARCHAR" property="chlKindName" />
+    <result column="DEPT_ID1" jdbcType="VARCHAR" property="deptId1" />
+    <result column="DEPT_ID2" jdbcType="VARCHAR" property="deptId2" />
+    <result column="DEPT_ID3" jdbcType="VARCHAR" property="deptId3" />
+    <result column="DEPT_ID4" jdbcType="VARCHAR" property="deptId4" />
+    <result column="DEPT_ID5" jdbcType="VARCHAR" property="deptId5" />
+    <result column="DEPT_ID6" jdbcType="VARCHAR" property="deptId6" />
+    <result column="DEPT_ID" jdbcType="VARCHAR" property="deptId" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="ADM_REG_PROVINCE_CODE" jdbcType="VARCHAR" property="admRegProvinceCode" />
+    <result column="ADM_REG_CITY_CODE" jdbcType="VARCHAR" property="admRegCityCode" />
+    <result column="ADM_REG_COUNTY_CODE" jdbcType="VARCHAR" property="admRegCountyCode" />
+    <result column="ADM_REG_TOWN_CODE" jdbcType="VARCHAR" property="admRegTownCode" />
+    <result column="ADM_REG_VILLAGE_CODE" jdbcType="VARCHAR" property="admRegVillageCode" />
+    <result column="ADM_REG_CODE" jdbcType="VARCHAR" property="admRegCode" />
+    <result column="BUSI_REG_PROVINCE_CODE" jdbcType="VARCHAR" property="busiRegProvinceCode" />
+    <result column="BUSI_REG_CITY_CODE" jdbcType="VARCHAR" property="busiRegCityCode" />
+    <result column="BUSI_REG_COUNTY_CODE" jdbcType="VARCHAR" property="busiRegCountyCode" />
+    <result column="BUSI_REG_AREA_CODE" jdbcType="VARCHAR" property="busiRegAreaCode" />
+    <result column="BUSI_REG_GRID_CODE" jdbcType="VARCHAR" property="busiRegGridCode" />
+    <result column="BUSI_REG_MICRO_AREA_CODE" jdbcType="VARCHAR" property="busiRegMicroAreaCode" />
+    <result column="BUSI_REG_CODE" jdbcType="VARCHAR" property="busiRegCode" />
+    <result column="BUSI_CIRCLE_ID" jdbcType="VARCHAR" property="busiCircleId" />
+    <result column="CORE_FLAG" jdbcType="DECIMAL" property="coreFlag" />
+    <result column="CHANNEL_MANAGER_ID" jdbcType="VARCHAR" property="channelManagerId" />
+    <result column="CHANNEL_MANAGER_NAME" jdbcType="VARCHAR" property="channelManagerName" />
+    <result column="CHANNEL_MANAGER_PHONE" jdbcType="VARCHAR" property="channelManagerPhone" />
+    <result column="CHANNEL_ADDRESS" jdbcType="VARCHAR" property="channelAddress" />
+    <result column="LONGITUDE" jdbcType="DECIMAL" property="longitude" />
+    <result column="LATITUDE" jdbcType="DECIMAL" property="latitude" />
+    <result column="CONTACT_PERSON" jdbcType="VARCHAR" property="contactPerson" />
+    <result column="CONTACT_PHONE" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="CONTACT_MAIL" jdbcType="VARCHAR" property="contactMail" />
+    <result column="CONTACT_FAX" jdbcType="VARCHAR" property="contactFax" />
+    <result column="CONTACT_SEX" jdbcType="VARCHAR" property="contactSex" />
+    <result column="CONTACT_POSTCODE" jdbcType="VARCHAR" property="contactPostcode" />
+    <result column="CONTACT_ADDRESS" jdbcType="VARCHAR" property="contactAddress" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="BIND_MANAGER_FLAG" jdbcType="DECIMAL" property="bindManagerFlag" />
+    <result column="CONTRACT_BOND" jdbcType="DECIMAL" property="contractBond" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+    <result column="BELONG_ZYST_CHL_ID" jdbcType="DECIMAL" property="belongZystChlId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlBase">
+    insert into OPS_ODS_CHL_BASE_D (CHANNEL_ID, STATE, CHANNEL_CODE, 
+      CHANNEL_NAME, TELECOM_OPERATOR_ID, BUSINESS_MODE, 
+      BUSINESS_NATURE, CONSTRUCT_MODE, CHANNEL_LAYER, 
+      CHANNEL_STAR_LEVEL, CHL_FIRST_KIND_ID, CHL_SECOND_KIND_ID, 
+      CHL_THIRD_KIND_ID, CHL_FORTH_KIND_ID, CHL_KIND_ID, 
+      CHL_KIND_NAME, DEPT_ID1, DEPT_ID2, 
+      DEPT_ID3, DEPT_ID4, DEPT_ID5, 
+      DEPT_ID6, DEPT_ID, DEPT_NAME, 
+      ADM_REG_PROVINCE_CODE, ADM_REG_CITY_CODE, ADM_REG_COUNTY_CODE, 
+      ADM_REG_TOWN_CODE, ADM_REG_VILLAGE_CODE, ADM_REG_CODE, 
+      BUSI_REG_PROVINCE_CODE, BUSI_REG_CITY_CODE, BUSI_REG_COUNTY_CODE, 
+      BUSI_REG_AREA_CODE, BUSI_REG_GRID_CODE, BUSI_REG_MICRO_AREA_CODE, 
+      BUSI_REG_CODE, BUSI_CIRCLE_ID, CORE_FLAG, 
+      CHANNEL_MANAGER_ID, CHANNEL_MANAGER_NAME, CHANNEL_MANAGER_PHONE, 
+      CHANNEL_ADDRESS, LONGITUDE, LATITUDE, 
+      CONTACT_PERSON, CONTACT_PHONE, CONTACT_MAIL, 
+      CONTACT_FAX, CONTACT_SEX, CONTACT_POSTCODE, 
+      CONTACT_ADDRESS, CREATE_TIME, CREATE_OPER_ID, 
+      UPDATE_TIME, UPDATE_OPER_ID, REMARK, 
+      BIND_MANAGER_FLAG, CONTRACT_BOND, EXT_JSON, 
+      BELONG_ZYST_CHL_ID)
+    values (#{channelId,jdbcType=DECIMAL}, #{state,jdbcType=DECIMAL}, #{channelCode,jdbcType=VARCHAR}, 
+      #{channelName,jdbcType=VARCHAR}, #{telecomOperatorId,jdbcType=VARCHAR}, #{businessMode,jdbcType=VARCHAR}, 
+      #{businessNature,jdbcType=VARCHAR}, #{constructMode,jdbcType=VARCHAR}, #{channelLayer,jdbcType=VARCHAR}, 
+      #{channelStarLevel,jdbcType=VARCHAR}, #{chlFirstKindId,jdbcType=VARCHAR}, #{chlSecondKindId,jdbcType=VARCHAR}, 
+      #{chlThirdKindId,jdbcType=VARCHAR}, #{chlForthKindId,jdbcType=VARCHAR}, #{chlKindId,jdbcType=VARCHAR}, 
+      #{chlKindName,jdbcType=VARCHAR}, #{deptId1,jdbcType=VARCHAR}, #{deptId2,jdbcType=VARCHAR}, 
+      #{deptId3,jdbcType=VARCHAR}, #{deptId4,jdbcType=VARCHAR}, #{deptId5,jdbcType=VARCHAR}, 
+      #{deptId6,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{admRegProvinceCode,jdbcType=VARCHAR}, #{admRegCityCode,jdbcType=VARCHAR}, #{admRegCountyCode,jdbcType=VARCHAR}, 
+      #{admRegTownCode,jdbcType=VARCHAR}, #{admRegVillageCode,jdbcType=VARCHAR}, #{admRegCode,jdbcType=VARCHAR}, 
+      #{busiRegProvinceCode,jdbcType=VARCHAR}, #{busiRegCityCode,jdbcType=VARCHAR}, #{busiRegCountyCode,jdbcType=VARCHAR}, 
+      #{busiRegAreaCode,jdbcType=VARCHAR}, #{busiRegGridCode,jdbcType=VARCHAR}, #{busiRegMicroAreaCode,jdbcType=VARCHAR}, 
+      #{busiRegCode,jdbcType=VARCHAR}, #{busiCircleId,jdbcType=VARCHAR}, #{coreFlag,jdbcType=DECIMAL}, 
+      #{channelManagerId,jdbcType=VARCHAR}, #{channelManagerName,jdbcType=VARCHAR}, #{channelManagerPhone,jdbcType=VARCHAR}, 
+      #{channelAddress,jdbcType=VARCHAR}, #{longitude,jdbcType=DECIMAL}, #{latitude,jdbcType=DECIMAL}, 
+      #{contactPerson,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, #{contactMail,jdbcType=VARCHAR}, 
+      #{contactFax,jdbcType=VARCHAR}, #{contactSex,jdbcType=VARCHAR}, #{contactPostcode,jdbcType=VARCHAR}, 
+      #{contactAddress,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{createOperId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{bindManagerFlag,jdbcType=DECIMAL}, #{contractBond,jdbcType=DECIMAL}, #{extJson,jdbcType=VARCHAR}, 
+      #{belongZystChlId,jdbcType=DECIMAL})
+  </insert>
+  
+  
+  
+  
+  <select id="selectByCondition" parameterType="hashmap" resultMap="BaseResultMap" >
+  	select * from OPS_ODS_CHL_BASE_D where channel_id=#{chl_id} and state=#{chl_state}
+  </select>
+  
+  
+  
+  
+  
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlBase">
+    insert into OPS_ODS_CHL_BASE_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="channelCode != null">
+        CHANNEL_CODE,
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME,
+      </if>
+      <if test="telecomOperatorId != null">
+        TELECOM_OPERATOR_ID,
+      </if>
+      <if test="businessMode != null">
+        BUSINESS_MODE,
+      </if>
+      <if test="businessNature != null">
+        BUSINESS_NATURE,
+      </if>
+      <if test="constructMode != null">
+        CONSTRUCT_MODE,
+      </if>
+      <if test="channelLayer != null">
+        CHANNEL_LAYER,
+      </if>
+      <if test="channelStarLevel != null">
+        CHANNEL_STAR_LEVEL,
+      </if>
+      <if test="chlFirstKindId != null">
+        CHL_FIRST_KIND_ID,
+      </if>
+      <if test="chlSecondKindId != null">
+        CHL_SECOND_KIND_ID,
+      </if>
+      <if test="chlThirdKindId != null">
+        CHL_THIRD_KIND_ID,
+      </if>
+      <if test="chlForthKindId != null">
+        CHL_FORTH_KIND_ID,
+      </if>
+      <if test="chlKindId != null">
+        CHL_KIND_ID,
+      </if>
+      <if test="chlKindName != null">
+        CHL_KIND_NAME,
+      </if>
+      <if test="deptId1 != null">
+        DEPT_ID1,
+      </if>
+      <if test="deptId2 != null">
+        DEPT_ID2,
+      </if>
+      <if test="deptId3 != null">
+        DEPT_ID3,
+      </if>
+      <if test="deptId4 != null">
+        DEPT_ID4,
+      </if>
+      <if test="deptId5 != null">
+        DEPT_ID5,
+      </if>
+      <if test="deptId6 != null">
+        DEPT_ID6,
+      </if>
+      <if test="deptId != null">
+        DEPT_ID,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="admRegProvinceCode != null">
+        ADM_REG_PROVINCE_CODE,
+      </if>
+      <if test="admRegCityCode != null">
+        ADM_REG_CITY_CODE,
+      </if>
+      <if test="admRegCountyCode != null">
+        ADM_REG_COUNTY_CODE,
+      </if>
+      <if test="admRegTownCode != null">
+        ADM_REG_TOWN_CODE,
+      </if>
+      <if test="admRegVillageCode != null">
+        ADM_REG_VILLAGE_CODE,
+      </if>
+      <if test="admRegCode != null">
+        ADM_REG_CODE,
+      </if>
+      <if test="busiRegProvinceCode != null">
+        BUSI_REG_PROVINCE_CODE,
+      </if>
+      <if test="busiRegCityCode != null">
+        BUSI_REG_CITY_CODE,
+      </if>
+      <if test="busiRegCountyCode != null">
+        BUSI_REG_COUNTY_CODE,
+      </if>
+      <if test="busiRegAreaCode != null">
+        BUSI_REG_AREA_CODE,
+      </if>
+      <if test="busiRegGridCode != null">
+        BUSI_REG_GRID_CODE,
+      </if>
+      <if test="busiRegMicroAreaCode != null">
+        BUSI_REG_MICRO_AREA_CODE,
+      </if>
+      <if test="busiRegCode != null">
+        BUSI_REG_CODE,
+      </if>
+      <if test="busiCircleId != null">
+        BUSI_CIRCLE_ID,
+      </if>
+      <if test="coreFlag != null">
+        CORE_FLAG,
+      </if>
+      <if test="channelManagerId != null">
+        CHANNEL_MANAGER_ID,
+      </if>
+      <if test="channelManagerName != null">
+        CHANNEL_MANAGER_NAME,
+      </if>
+      <if test="channelManagerPhone != null">
+        CHANNEL_MANAGER_PHONE,
+      </if>
+      <if test="channelAddress != null">
+        CHANNEL_ADDRESS,
+      </if>
+      <if test="longitude != null">
+        LONGITUDE,
+      </if>
+      <if test="latitude != null">
+        LATITUDE,
+      </if>
+      <if test="contactPerson != null">
+        CONTACT_PERSON,
+      </if>
+      <if test="contactPhone != null">
+        CONTACT_PHONE,
+      </if>
+      <if test="contactMail != null">
+        CONTACT_MAIL,
+      </if>
+      <if test="contactFax != null">
+        CONTACT_FAX,
+      </if>
+      <if test="contactSex != null">
+        CONTACT_SEX,
+      </if>
+      <if test="contactPostcode != null">
+        CONTACT_POSTCODE,
+      </if>
+      <if test="contactAddress != null">
+        CONTACT_ADDRESS,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="bindManagerFlag != null">
+        BIND_MANAGER_FLAG,
+      </if>
+      <if test="contractBond != null">
+        CONTRACT_BOND,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+      <if test="belongZystChlId != null">
+        BELONG_ZYST_CHL_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="channelCode != null">
+        #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="telecomOperatorId != null">
+        #{telecomOperatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessMode != null">
+        #{businessMode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessNature != null">
+        #{businessNature,jdbcType=VARCHAR},
+      </if>
+      <if test="constructMode != null">
+        #{constructMode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelLayer != null">
+        #{channelLayer,jdbcType=VARCHAR},
+      </if>
+      <if test="channelStarLevel != null">
+        #{channelStarLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="chlFirstKindId != null">
+        #{chlFirstKindId,jdbcType=VARCHAR},
+      </if>
+      <if test="chlSecondKindId != null">
+        #{chlSecondKindId,jdbcType=VARCHAR},
+      </if>
+      <if test="chlThirdKindId != null">
+        #{chlThirdKindId,jdbcType=VARCHAR},
+      </if>
+      <if test="chlForthKindId != null">
+        #{chlForthKindId,jdbcType=VARCHAR},
+      </if>
+      <if test="chlKindId != null">
+        #{chlKindId,jdbcType=VARCHAR},
+      </if>
+      <if test="chlKindName != null">
+        #{chlKindName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId1 != null">
+        #{deptId1,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId2 != null">
+        #{deptId2,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId3 != null">
+        #{deptId3,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId4 != null">
+        #{deptId4,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId5 != null">
+        #{deptId5,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId6 != null">
+        #{deptId6,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegProvinceCode != null">
+        #{admRegProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegCityCode != null">
+        #{admRegCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegCountyCode != null">
+        #{admRegCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegTownCode != null">
+        #{admRegTownCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegVillageCode != null">
+        #{admRegVillageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegCode != null">
+        #{admRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegProvinceCode != null">
+        #{busiRegProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegCityCode != null">
+        #{busiRegCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegCountyCode != null">
+        #{busiRegCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegAreaCode != null">
+        #{busiRegAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegGridCode != null">
+        #{busiRegGridCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegMicroAreaCode != null">
+        #{busiRegMicroAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegCode != null">
+        #{busiRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiCircleId != null">
+        #{busiCircleId,jdbcType=VARCHAR},
+      </if>
+      <if test="coreFlag != null">
+        #{coreFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="channelManagerId != null">
+        #{channelManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerName != null">
+        #{channelManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerPhone != null">
+        #{channelManagerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="channelAddress != null">
+        #{channelAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="contactPerson != null">
+        #{contactPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMail != null">
+        #{contactMail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFax != null">
+        #{contactFax,jdbcType=VARCHAR},
+      </if>
+      <if test="contactSex != null">
+        #{contactSex,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPostcode != null">
+        #{contactPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null">
+        #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bindManagerFlag != null">
+        #{bindManagerFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="contractBond != null">
+        #{contractBond,jdbcType=DECIMAL},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+      <if test="belongZystChlId != null">
+        #{belongZystChlId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

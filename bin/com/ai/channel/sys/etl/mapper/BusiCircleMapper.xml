@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.BusiCircleMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.BusiCircle">
+    <result column="BUSINESS_CIRCLE_ID" jdbcType="DECIMAL" property="businessCircleId" />
+    <result column="BUSINESS_CIRCLE_NAME" jdbcType="VARCHAR" property="businessCircleName" />
+    <result column="BUSINESS_CIRCLE_TYPE" jdbcType="VARCHAR" property="businessCircleType" />
+    <result column="BUSINESS_MAIN_STREET" jdbcType="VARCHAR" property="businessMainStreet" />
+    <result column="CORE_MERCHANT_NAME" jdbcType="VARCHAR" property="coreMerchantName" />
+    <result column="MERCHANT_NUM" jdbcType="DECIMAL" property="merchantNum" />
+    <result column="OPER_ID" jdbcType="VARCHAR" property="operId" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="BUSINESS_LEVEL" jdbcType="DECIMAL" property="businessLevel" />
+    <result column="CORE_MERCHANT_CODE" jdbcType="VARCHAR" property="coreMerchantCode" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EAST_DESCRIBE" jdbcType="VARCHAR" property="eastDescribe" />
+    <result column="WEST_DESCRIBE" jdbcType="VARCHAR" property="westDescribe" />
+    <result column="SOUTH_DESCRIBE" jdbcType="VARCHAR" property="southDescribe" />
+    <result column="NORTH_DESCRIBE" jdbcType="VARCHAR" property="northDescribe" />
+    <result column="THIRD_BUSI_AREA_CODE" jdbcType="VARCHAR" property="thirdBusiAreaCode" />
+    <result column="THIRD_AREA_CODE" jdbcType="VARCHAR" property="thirdAreaCode" />
+    <result column="ADM_REG_PROVINCE_CODE" jdbcType="VARCHAR" property="admRegProvinceCode" />
+    <result column="ADM_REG_CITY_CODE" jdbcType="VARCHAR" property="admRegCityCode" />
+    <result column="ADM_REG_COUNTY_CODE" jdbcType="VARCHAR" property="admRegCountyCode" />
+    <result column="ADM_REG_TOWN_CODE" jdbcType="VARCHAR" property="admRegTownCode" />
+    <result column="ADM_REG_VILLAGE_CODE" jdbcType="VARCHAR" property="admRegVillageCode" />
+    <result column="ADM_REG_CODE" jdbcType="VARCHAR" property="admRegCode" />
+    <result column="BUSI_REG_PROVINCE_CODE" jdbcType="VARCHAR" property="busiRegProvinceCode" />
+    <result column="BUSI_REG_CITY_CODE" jdbcType="VARCHAR" property="busiRegCityCode" />
+    <result column="BUSI_REG_COUNTY_CODE" jdbcType="VARCHAR" property="busiRegCountyCode" />
+    <result column="BUSI_REG_AREA_CODE" jdbcType="VARCHAR" property="busiRegAreaCode" />
+    <result column="BUSI_REG_GRID_CODE" jdbcType="VARCHAR" property="busiRegGridCode" />
+    <result column="BUSI_REG_MICRO_AREA_CODE" jdbcType="VARCHAR" property="busiRegMicroAreaCode" />
+    <result column="BUSI_REG_CODE" jdbcType="VARCHAR" property="busiRegCode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.BusiCircle">
+    insert into OPS_D_BAS_BUSI_CIRCLE (BUSINESS_CIRCLE_ID, BUSINESS_CIRCLE_NAME, 
+      BUSINESS_CIRCLE_TYPE, BUSINESS_MAIN_STREET, 
+      CORE_MERCHANT_NAME, MERCHANT_NUM, OPER_ID, 
+      CREATE_TIME, UPDATE_OPER_ID, UPDATE_TIME, 
+      STATE, BUSINESS_LEVEL, CORE_MERCHANT_CODE, 
+      REMARK, EAST_DESCRIBE, WEST_DESCRIBE, 
+      SOUTH_DESCRIBE, NORTH_DESCRIBE, THIRD_BUSI_AREA_CODE, 
+      THIRD_AREA_CODE, ADM_REG_PROVINCE_CODE, ADM_REG_CITY_CODE, 
+      ADM_REG_COUNTY_CODE, ADM_REG_TOWN_CODE, ADM_REG_VILLAGE_CODE, 
+      ADM_REG_CODE, BUSI_REG_PROVINCE_CODE, BUSI_REG_CITY_CODE, 
+      BUSI_REG_COUNTY_CODE, BUSI_REG_AREA_CODE, BUSI_REG_GRID_CODE, 
+      BUSI_REG_MICRO_AREA_CODE, BUSI_REG_CODE)
+    values (#{businessCircleId,jdbcType=DECIMAL}, #{businessCircleName,jdbcType=VARCHAR}, 
+      #{businessCircleType,jdbcType=VARCHAR}, #{businessMainStreet,jdbcType=VARCHAR}, 
+      #{coreMerchantName,jdbcType=VARCHAR}, #{merchantNum,jdbcType=DECIMAL}, #{operId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, 
+      #{state,jdbcType=DECIMAL}, #{businessLevel,jdbcType=DECIMAL}, #{coreMerchantCode,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{eastDescribe,jdbcType=VARCHAR}, #{westDescribe,jdbcType=VARCHAR}, 
+      #{southDescribe,jdbcType=VARCHAR}, #{northDescribe,jdbcType=VARCHAR}, #{thirdBusiAreaCode,jdbcType=VARCHAR}, 
+      #{thirdAreaCode,jdbcType=VARCHAR}, #{admRegProvinceCode,jdbcType=VARCHAR}, #{admRegCityCode,jdbcType=VARCHAR}, 
+      #{admRegCountyCode,jdbcType=VARCHAR}, #{admRegTownCode,jdbcType=VARCHAR}, #{admRegVillageCode,jdbcType=VARCHAR}, 
+      #{admRegCode,jdbcType=VARCHAR}, #{busiRegProvinceCode,jdbcType=VARCHAR}, #{busiRegCityCode,jdbcType=VARCHAR}, 
+      #{busiRegCountyCode,jdbcType=VARCHAR}, #{busiRegAreaCode,jdbcType=VARCHAR}, #{busiRegGridCode,jdbcType=VARCHAR}, 
+      #{busiRegMicroAreaCode,jdbcType=VARCHAR}, #{busiRegCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.BusiCircle">
+    insert into OPS_D_BAS_BUSI_CIRCLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="businessCircleId != null">
+        BUSINESS_CIRCLE_ID,
+      </if>
+      <if test="businessCircleName != null">
+        BUSINESS_CIRCLE_NAME,
+      </if>
+      <if test="businessCircleType != null">
+        BUSINESS_CIRCLE_TYPE,
+      </if>
+      <if test="businessMainStreet != null">
+        BUSINESS_MAIN_STREET,
+      </if>
+      <if test="coreMerchantName != null">
+        CORE_MERCHANT_NAME,
+      </if>
+      <if test="merchantNum != null">
+        MERCHANT_NUM,
+      </if>
+      <if test="operId != null">
+        OPER_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="businessLevel != null">
+        BUSINESS_LEVEL,
+      </if>
+      <if test="coreMerchantCode != null">
+        CORE_MERCHANT_CODE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="eastDescribe != null">
+        EAST_DESCRIBE,
+      </if>
+      <if test="westDescribe != null">
+        WEST_DESCRIBE,
+      </if>
+      <if test="southDescribe != null">
+        SOUTH_DESCRIBE,
+      </if>
+      <if test="northDescribe != null">
+        NORTH_DESCRIBE,
+      </if>
+      <if test="thirdBusiAreaCode != null">
+        THIRD_BUSI_AREA_CODE,
+      </if>
+      <if test="thirdAreaCode != null">
+        THIRD_AREA_CODE,
+      </if>
+      <if test="admRegProvinceCode != null">
+        ADM_REG_PROVINCE_CODE,
+      </if>
+      <if test="admRegCityCode != null">
+        ADM_REG_CITY_CODE,
+      </if>
+      <if test="admRegCountyCode != null">
+        ADM_REG_COUNTY_CODE,
+      </if>
+      <if test="admRegTownCode != null">
+        ADM_REG_TOWN_CODE,
+      </if>
+      <if test="admRegVillageCode != null">
+        ADM_REG_VILLAGE_CODE,
+      </if>
+      <if test="admRegCode != null">
+        ADM_REG_CODE,
+      </if>
+      <if test="busiRegProvinceCode != null">
+        BUSI_REG_PROVINCE_CODE,
+      </if>
+      <if test="busiRegCityCode != null">
+        BUSI_REG_CITY_CODE,
+      </if>
+      <if test="busiRegCountyCode != null">
+        BUSI_REG_COUNTY_CODE,
+      </if>
+      <if test="busiRegAreaCode != null">
+        BUSI_REG_AREA_CODE,
+      </if>
+      <if test="busiRegGridCode != null">
+        BUSI_REG_GRID_CODE,
+      </if>
+      <if test="busiRegMicroAreaCode != null">
+        BUSI_REG_MICRO_AREA_CODE,
+      </if>
+      <if test="busiRegCode != null">
+        BUSI_REG_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="businessCircleId != null">
+        #{businessCircleId,jdbcType=DECIMAL},
+      </if>
+      <if test="businessCircleName != null">
+        #{businessCircleName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCircleType != null">
+        #{businessCircleType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessMainStreet != null">
+        #{businessMainStreet,jdbcType=VARCHAR},
+      </if>
+      <if test="coreMerchantName != null">
+        #{coreMerchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNum != null">
+        #{merchantNum,jdbcType=DECIMAL},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="businessLevel != null">
+        #{businessLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="coreMerchantCode != null">
+        #{coreMerchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="eastDescribe != null">
+        #{eastDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="westDescribe != null">
+        #{westDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="southDescribe != null">
+        #{southDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="northDescribe != null">
+        #{northDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdBusiAreaCode != null">
+        #{thirdBusiAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdAreaCode != null">
+        #{thirdAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegProvinceCode != null">
+        #{admRegProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegCityCode != null">
+        #{admRegCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegCountyCode != null">
+        #{admRegCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegTownCode != null">
+        #{admRegTownCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegVillageCode != null">
+        #{admRegVillageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="admRegCode != null">
+        #{admRegCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegProvinceCode != null">
+        #{busiRegProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegCityCode != null">
+        #{busiRegCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegCountyCode != null">
+        #{busiRegCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegAreaCode != null">
+        #{busiRegAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegGridCode != null">
+        #{busiRegGridCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegMicroAreaCode != null">
+        #{busiRegMicroAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="busiRegCode != null">
+        #{busiRegCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

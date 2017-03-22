@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlManagerMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlManager">
+    <result column="DIST_ID" jdbcType="DECIMAL" property="distId" />
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="RECORD_TYPE" jdbcType="VARCHAR" property="recordType" />
+    <result column="CHANNEL_MANAGER_ID" jdbcType="VARCHAR" property="channelManagerId" />
+    <result column="CHANNEL_MANAGER_NAME" jdbcType="VARCHAR" property="channelManagerName" />
+    <result column="CHANNEL_MANAGER_PHONE" jdbcType="VARCHAR" property="channelManagerPhone" />
+    <result column="CHANNEL_MANAGER_COUNTY_CODE" jdbcType="VARCHAR" property="channelManagerCountyCode" />
+    <result column="CHANNEL_MANAGER_COUNTY_NAME" jdbcType="VARCHAR" property="channelManagerCountyName" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlManager">
+    insert into OPS_ODS_CHL_MANGER_DIST_D (DIST_ID, CHANNEL_ID, RECORD_TYPE, 
+      CHANNEL_MANAGER_ID, CHANNEL_MANAGER_NAME, CHANNEL_MANAGER_PHONE, 
+      CHANNEL_MANAGER_COUNTY_CODE, CHANNEL_MANAGER_COUNTY_NAME, 
+      CREATE_TIME, CREATE_OPER_ID, UPDATE_TIME, 
+      UPDATE_OPER_ID, REMARK, EXT_JSON
+      )
+    values (#{distId,jdbcType=DECIMAL}, #{channelId,jdbcType=DECIMAL}, #{recordType,jdbcType=VARCHAR}, 
+      #{channelManagerId,jdbcType=VARCHAR}, #{channelManagerName,jdbcType=VARCHAR}, #{channelManagerPhone,jdbcType=VARCHAR}, 
+      #{channelManagerCountyCode,jdbcType=VARCHAR}, #{channelManagerCountyName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE}, #{createOperId,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, 
+      #{updateOperId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{extJson,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlManager">
+    insert into OPS_ODS_CHL_MANGER_DIST_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="distId != null">
+        DIST_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="recordType != null">
+        RECORD_TYPE,
+      </if>
+      <if test="channelManagerId != null">
+        CHANNEL_MANAGER_ID,
+      </if>
+      <if test="channelManagerName != null">
+        CHANNEL_MANAGER_NAME,
+      </if>
+      <if test="channelManagerPhone != null">
+        CHANNEL_MANAGER_PHONE,
+      </if>
+      <if test="channelManagerCountyCode != null">
+        CHANNEL_MANAGER_COUNTY_CODE,
+      </if>
+      <if test="channelManagerCountyName != null">
+        CHANNEL_MANAGER_COUNTY_NAME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="distId != null">
+        #{distId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerId != null">
+        #{channelManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerName != null">
+        #{channelManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerPhone != null">
+        #{channelManagerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerCountyCode != null">
+        #{channelManagerCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelManagerCountyName != null">
+        #{channelManagerCountyName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

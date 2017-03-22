@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration   
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">   
+
+<configuration>
+    <settings>   
+        <!-- changes from the defaults for testing -->   
+        <setting name="cacheEnabled" value="false" />   
+        <setting name="useGeneratedKeys" value="true" />   
+        <setting name="defaultExecutorType" value="REUSE" />   
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+
+    <typeAliases>   
+       <typeAlias alias="BankAcct" type="com.ai.channel.sys.etl.model.BankAcct"/>  
+       <typeAlias alias="BusiCircle" type="com.ai.channel.sys.etl.model.BusiCircle"/> 
+       <typeAlias alias="ChlAgent" type="com.ai.channel.sys.etl.model.ChlAgent"/> 
+       <typeAlias alias="ChlBase" type="com.ai.channel.sys.etl.model.ChlBase"/> 
+       <typeAlias alias="ChlContract" type="com.ai.channel.sys.etl.model.ChlContract"/> 
+       <typeAlias alias="ChlDevice" type="com.ai.channel.sys.etl.model.ChlDevice"/> 
+       <typeAlias alias="ChlKind" type="com.ai.channel.sys.etl.model.ChlKind"/> 
+       <typeAlias alias="ChlManager" type="com.ai.channel.sys.etl.model.ChlManager"/> 
+       <typeAlias alias="ChlNetwork" type="com.ai.channel.sys.etl.model.ChlNetwork"/> 
+       <typeAlias alias="ChlQuality" type="com.ai.channel.sys.etl.model.ChlQuality"/> 
+       <typeAlias alias="ChlShop" type="com.ai.channel.sys.etl.model.ChlShop"/> 
+    </typeAliases>
+
+    <environments default="development">   
+       <environment id="dev_source">   
+           <transactionManager type="jdbc"/>   
+           <dataSource type="POOLED">   
+              <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>   
+              <property name="url" value="jdbc:oracle:thin:@localhost:1521:optchl"/>   
+              <property name="username" value="mao"/>   
+              <property name="password" value="mao"/>   
+           </dataSource>   
+       </environment> 
+       <environment id="dev_md">   
+           <transactionManager type="jdbc"/>   
+           <dataSource type="POOLED">   
+              <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>   
+              <property name="url" value="jdbc:oracle:thin:@localhost:1521:optchl"/>   
+              <property name="username" value="mao"/>   
+              <property name="password" value="mao"/>   
+           </dataSource>   
+       </environment> 
+    </environments>   
+    <mappers>   
+        <mapper resource="com/ai/channel/sys/etl/mapper/BankAcctMapper.xml" />   
+        <mapper resource="com/ai/channel/sys/etl/mapper/BusiCircleMapper.xml" />
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlAgentMapper.xml" />   
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlBaseMapper.xml" />
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlContractMapper.xml" />   
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlDeviceMapper.xml" />
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlKindMapper.xml" />   
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlManagerMapper.xml" />
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlNetworkMapper.xml" />   
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlQualityMapper.xml" />
+        <mapper resource="com/ai/channel/sys/etl/mapper/ChlShopMapper.xml" />   
+        
+    </mappers>   
+</configuration>

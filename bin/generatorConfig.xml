@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<!-- 指定驱动位置 -->
+<classPathEntry location="H:\\wp\\lib\\lib\\ojdbc14.jar" />
+  <context id="oracleTables" targetRuntime="MyBatis3" >
+  <!-- 防止代码中注释的扰乱 -->
+ 	 <commentGenerator>  
+            <property name="suppressAllComments" value="true" />  
+     </commentGenerator> 
+     
+    <!-- 数据库链接URL、用户名、密码 -->  
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:optchl" userId="mao" password="mao" />
+    
+    <!-- 解析器，关于int double 等数字类型转换的设置 -->
+    <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false" />  
+    </javaTypeResolver> 
+    
+    <!-- 生成模型的包名和位置 -->
+    <javaModelGenerator targetPackage="com.ai.channel.sys.etl.model" targetProject="MobileEtl\src" >
+     		<property name="enableSubPackages" value="true" />  
+            <property name="trimStrings" value="true" />  
+    </javaModelGenerator>  
+    
+    <!-- 生成的映射文件包名和位置 --> 
+    <sqlMapGenerator targetPackage="com.ai.channel.sys.etl.mapper" targetProject="MobileEtl\src" >
+            <property name="enableSubPackages" value="true" />  
+    </sqlMapGenerator>  
+    
+     <!-- 生成DAO的包名和位置 --> 
+    <javaClientGenerator targetPackage="com.ai.channel.sys.etl.dao" targetProject="MobileEtl\src" type="XMLMAPPER" >
+           <property name="enableSubPackages" value="true" />  
+    </javaClientGenerator>  
+    
+    <!-- 要生成那些表(更改tableName和domainObjectName就可以)   <columnOverride column="id" property="pro_id" />    oracle- 不用加schema --> 
+    <table  tableName="ops_d_bas_chl_agent"  domainObjectName="ChlAgent" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table>
+    <table  tableName="ops_d_bas_chl_kind"  domainObjectName="ChlKind" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table>
+    <table  tableName="ops_d_bas_busi_circle"  domainObjectName="BusiCircle" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table>
+     <table  tableName="ops_ods_chl_bank_acct_d"  domainObjectName="BankAcct" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table>
+    <table  tableName="ops_ods_chl_base_d"  domainObjectName="ChlBase" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+    <table  tableName="ops_ods_chl_contract_d"  domainObjectName="ChlContract" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+    <table  tableName="ops_ods_chl_device_d"  domainObjectName="ChlDevice" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+    <table  tableName="ops_ods_chl_manger_dist_d"  domainObjectName="ChlManager" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+    <table  tableName="ops_ods_chl_quality_d"  domainObjectName="ChlQuality" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+    <table  tableName="ops_ods_chl_shop_d"  domainObjectName="ChlShop" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+    <table tableName="ops_ods_rival_chl_network_d"  domainObjectName="ChlNetwork" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    
+    </table> 
+  </context>
+</generatorConfiguration>

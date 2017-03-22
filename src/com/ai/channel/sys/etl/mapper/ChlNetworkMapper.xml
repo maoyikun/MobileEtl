@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlNetworkMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlNetwork">
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="NETWORK_COVERAGE" jdbcType="VARCHAR" property="networkCoverage" />
+    <result column="SYSTEM_ACCESS_MODE" jdbcType="VARCHAR" property="systemAccessMode" />
+    <result column="INTERNET_ACCESS_MODE" jdbcType="VARCHAR" property="internetAccessMode" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlNetwork">
+    insert into OPS_ODS_RIVAL_CHL_NETWORK_D (CHANNEL_ID, NETWORK_COVERAGE, SYSTEM_ACCESS_MODE, 
+      INTERNET_ACCESS_MODE, STATE, CREATE_TIME, 
+      CREATE_OPER_ID, UPDATE_TIME, UPDATE_OPER_ID, 
+      REMARK, EXT_JSON)
+    values (#{channelId,jdbcType=DECIMAL}, #{networkCoverage,jdbcType=VARCHAR}, #{systemAccessMode,jdbcType=VARCHAR}, 
+      #{internetAccessMode,jdbcType=VARCHAR}, #{state,jdbcType=DECIMAL}, #{createTime,jdbcType=DATE}, 
+      #{createOperId,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{extJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlNetwork">
+    insert into OPS_ODS_RIVAL_CHL_NETWORK_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="networkCoverage != null">
+        NETWORK_COVERAGE,
+      </if>
+      <if test="systemAccessMode != null">
+        SYSTEM_ACCESS_MODE,
+      </if>
+      <if test="internetAccessMode != null">
+        INTERNET_ACCESS_MODE,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="networkCoverage != null">
+        #{networkCoverage,jdbcType=VARCHAR},
+      </if>
+      <if test="systemAccessMode != null">
+        #{systemAccessMode,jdbcType=VARCHAR},
+      </if>
+      <if test="internetAccessMode != null">
+        #{internetAccessMode,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlQualityMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlQuality">
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="LEGAL_ENTITY_FLAG" jdbcType="DECIMAL" property="legalEntityFlag" />
+    <result column="BUSINESS_LICENSE" jdbcType="VARCHAR" property="businessLicense" />
+    <result column="LEGAL_REPRESENTATIVE" jdbcType="VARCHAR" property="legalRepresentative" />
+    <result column="LEGAL_PHONE" jdbcType="VARCHAR" property="legalPhone" />
+    <result column="LEGAL_IDNO" jdbcType="VARCHAR" property="legalIdno" />
+    <result column="AGENT_ID" jdbcType="DECIMAL" property="agentId" />
+    <result column="AGENT_NAME" jdbcType="VARCHAR" property="agentName" />
+    <result column="REGISTERED_CAPITAL" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="MANAGED_IN_MIS_FLAG" jdbcType="DECIMAL" property="managedInMisFlag" />
+    <result column="CHOOSEN_METHOD" jdbcType="VARCHAR" property="choosenMethod" />
+    <result column="CURR_STATE" jdbcType="DECIMAL" property="currState" />
+    <result column="LAST_AUDIT_TIME" jdbcType="DATE" property="lastAuditTime" />
+    <result column="NEXT_AUDIT_TIME" jdbcType="DATE" property="nextAuditTime" />
+    <result column="BUSINESS_SERVICE_SCOPE" jdbcType="VARCHAR" property="businessServiceScope" />
+    <result column="BT_TO_VAT_NATURE" jdbcType="VARCHAR" property="btToVatNature" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlQuality">
+    insert into OPS_ODS_CHL_QUALITY_D (CHANNEL_ID, LEGAL_ENTITY_FLAG, BUSINESS_LICENSE, 
+      LEGAL_REPRESENTATIVE, LEGAL_PHONE, LEGAL_IDNO, 
+      AGENT_ID, AGENT_NAME, REGISTERED_CAPITAL, 
+      MANAGED_IN_MIS_FLAG, CHOOSEN_METHOD, CURR_STATE, 
+      LAST_AUDIT_TIME, NEXT_AUDIT_TIME, BUSINESS_SERVICE_SCOPE, 
+      BT_TO_VAT_NATURE, CREATE_TIME, CREATE_OPER_ID, 
+      UPDATE_TIME, UPDATE_OPER_ID, REMARK, 
+      EXT_JSON)
+    values (#{channelId,jdbcType=DECIMAL}, #{legalEntityFlag,jdbcType=DECIMAL}, #{businessLicense,jdbcType=VARCHAR}, 
+      #{legalRepresentative,jdbcType=VARCHAR}, #{legalPhone,jdbcType=VARCHAR}, #{legalIdno,jdbcType=VARCHAR}, 
+      #{agentId,jdbcType=DECIMAL}, #{agentName,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, 
+      #{managedInMisFlag,jdbcType=DECIMAL}, #{choosenMethod,jdbcType=VARCHAR}, #{currState,jdbcType=DECIMAL}, 
+      #{lastAuditTime,jdbcType=DATE}, #{nextAuditTime,jdbcType=DATE}, #{businessServiceScope,jdbcType=VARCHAR}, 
+      #{btToVatNature,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{createOperId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{extJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlQuality">
+    insert into OPS_ODS_CHL_QUALITY_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="legalEntityFlag != null">
+        LEGAL_ENTITY_FLAG,
+      </if>
+      <if test="businessLicense != null">
+        BUSINESS_LICENSE,
+      </if>
+      <if test="legalRepresentative != null">
+        LEGAL_REPRESENTATIVE,
+      </if>
+      <if test="legalPhone != null">
+        LEGAL_PHONE,
+      </if>
+      <if test="legalIdno != null">
+        LEGAL_IDNO,
+      </if>
+      <if test="agentId != null">
+        AGENT_ID,
+      </if>
+      <if test="agentName != null">
+        AGENT_NAME,
+      </if>
+      <if test="registeredCapital != null">
+        REGISTERED_CAPITAL,
+      </if>
+      <if test="managedInMisFlag != null">
+        MANAGED_IN_MIS_FLAG,
+      </if>
+      <if test="choosenMethod != null">
+        CHOOSEN_METHOD,
+      </if>
+      <if test="currState != null">
+        CURR_STATE,
+      </if>
+      <if test="lastAuditTime != null">
+        LAST_AUDIT_TIME,
+      </if>
+      <if test="nextAuditTime != null">
+        NEXT_AUDIT_TIME,
+      </if>
+      <if test="businessServiceScope != null">
+        BUSINESS_SERVICE_SCOPE,
+      </if>
+      <if test="btToVatNature != null">
+        BT_TO_VAT_NATURE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="legalEntityFlag != null">
+        #{legalEntityFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentative != null">
+        #{legalRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPhone != null">
+        #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdno != null">
+        #{legalIdno,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        #{agentId,jdbcType=DECIMAL},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="managedInMisFlag != null">
+        #{managedInMisFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="choosenMethod != null">
+        #{choosenMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="currState != null">
+        #{currState,jdbcType=DECIMAL},
+      </if>
+      <if test="lastAuditTime != null">
+        #{lastAuditTime,jdbcType=DATE},
+      </if>
+      <if test="nextAuditTime != null">
+        #{nextAuditTime,jdbcType=DATE},
+      </if>
+      <if test="businessServiceScope != null">
+        #{businessServiceScope,jdbcType=VARCHAR},
+      </if>
+      <if test="btToVatNature != null">
+        #{btToVatNature,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

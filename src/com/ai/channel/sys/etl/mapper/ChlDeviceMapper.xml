@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlDevice">
+    <result column="DEVICE_ID" jdbcType="DECIMAL" property="deviceId" />
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="DEVICE_NAME" jdbcType="VARCHAR" property="deviceName" />
+    <result column="FIXED_ASSET_CODE" jdbcType="VARCHAR" property="fixedAssetCode" />
+    <result column="DEVICE_MODEL" jdbcType="VARCHAR" property="deviceModel" />
+    <result column="DEVICE_PRICE" jdbcType="DECIMAL" property="devicePrice" />
+    <result column="DEVICE_NUM" jdbcType="DECIMAL" property="deviceNum" />
+    <result column="DEVICE_DESC" jdbcType="VARCHAR" property="deviceDesc" />
+    <result column="SUPPLIER" jdbcType="VARCHAR" property="supplier" />
+    <result column="MAINTAINER" jdbcType="VARCHAR" property="maintainer" />
+    <result column="ARRIVAL_TIME" jdbcType="DATE" property="arrivalTime" />
+    <result column="START_USE_TIME" jdbcType="DATE" property="startUseTime" />
+    <result column="DISCARDE_TIME" jdbcType="DATE" property="discardeTime" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlDevice">
+    insert into OPS_ODS_CHL_DEVICE_D (DEVICE_ID, CHANNEL_ID, DEVICE_NAME, 
+      FIXED_ASSET_CODE, DEVICE_MODEL, DEVICE_PRICE, 
+      DEVICE_NUM, DEVICE_DESC, SUPPLIER, 
+      MAINTAINER, ARRIVAL_TIME, START_USE_TIME, 
+      DISCARDE_TIME, STATE, CREATE_TIME, 
+      CREATE_OPER_ID, UPDATE_TIME, UPDATE_OPER_ID, 
+      REMARK, EXT_JSON)
+    values (#{deviceId,jdbcType=DECIMAL}, #{channelId,jdbcType=DECIMAL}, #{deviceName,jdbcType=VARCHAR}, 
+      #{fixedAssetCode,jdbcType=VARCHAR}, #{deviceModel,jdbcType=VARCHAR}, #{devicePrice,jdbcType=DECIMAL}, 
+      #{deviceNum,jdbcType=DECIMAL}, #{deviceDesc,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, 
+      #{maintainer,jdbcType=VARCHAR}, #{arrivalTime,jdbcType=DATE}, #{startUseTime,jdbcType=DATE}, 
+      #{discardeTime,jdbcType=DATE}, #{state,jdbcType=DECIMAL}, #{createTime,jdbcType=DATE}, 
+      #{createOperId,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{extJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlDevice">
+    insert into OPS_ODS_CHL_DEVICE_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        DEVICE_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="deviceName != null">
+        DEVICE_NAME,
+      </if>
+      <if test="fixedAssetCode != null">
+        FIXED_ASSET_CODE,
+      </if>
+      <if test="deviceModel != null">
+        DEVICE_MODEL,
+      </if>
+      <if test="devicePrice != null">
+        DEVICE_PRICE,
+      </if>
+      <if test="deviceNum != null">
+        DEVICE_NUM,
+      </if>
+      <if test="deviceDesc != null">
+        DEVICE_DESC,
+      </if>
+      <if test="supplier != null">
+        SUPPLIER,
+      </if>
+      <if test="maintainer != null">
+        MAINTAINER,
+      </if>
+      <if test="arrivalTime != null">
+        ARRIVAL_TIME,
+      </if>
+      <if test="startUseTime != null">
+        START_USE_TIME,
+      </if>
+      <if test="discardeTime != null">
+        DISCARDE_TIME,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceName != null">
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedAssetCode != null">
+        #{fixedAssetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceModel != null">
+        #{deviceModel,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePrice != null">
+        #{devicePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceNum != null">
+        #{deviceNum,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceDesc != null">
+        #{deviceDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="maintainer != null">
+        #{maintainer,jdbcType=VARCHAR},
+      </if>
+      <if test="arrivalTime != null">
+        #{arrivalTime,jdbcType=DATE},
+      </if>
+      <if test="startUseTime != null">
+        #{startUseTime,jdbcType=DATE},
+      </if>
+      <if test="discardeTime != null">
+        #{discardeTime,jdbcType=DATE},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

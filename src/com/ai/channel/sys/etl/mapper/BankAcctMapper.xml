@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.BankAcctMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.BankAcct">
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="ACCT_TYPE" jdbcType="VARCHAR" property="acctType" />
+    <result column="ACCT_BANK" jdbcType="VARCHAR" property="acctBank" />
+    <result column="ACCT_BRANCH_BANK" jdbcType="VARCHAR" property="acctBranchBank" />
+    <result column="ACCT_NAME" jdbcType="VARCHAR" property="acctName" />
+    <result column="ACCT_NO" jdbcType="VARCHAR" property="acctNo" />
+    <result column="ACCT_SMS_PHONE" jdbcType="VARCHAR" property="acctSmsPhone" />
+    <result column="ACCT_STATE" jdbcType="DECIMAL" property="acctState" />
+    <result column="ACCT_CHARGEBACKS" jdbcType="VARCHAR" property="acctChargebacks" />
+    <result column="ACCT_BANK_CODE" jdbcType="VARCHAR" property="acctBankCode" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PROVINCE_CODE" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="CITY_CODE" jdbcType="VARCHAR" property="cityCode" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.BankAcct">
+    insert into OPS_ODS_CHL_BANK_ACCT_D (CHANNEL_ID, ACCT_TYPE, ACCT_BANK, 
+      ACCT_BRANCH_BANK, ACCT_NAME, ACCT_NO, 
+      ACCT_SMS_PHONE, ACCT_STATE, ACCT_CHARGEBACKS, 
+      ACCT_BANK_CODE, CREATE_TIME, CREATE_OPER_ID, 
+      UPDATE_TIME, UPDATE_OPER_ID, REMARK, 
+      PROVINCE_CODE, CITY_CODE, EXT_JSON
+      )
+    values (#{channelId,jdbcType=DECIMAL}, #{acctType,jdbcType=VARCHAR}, #{acctBank,jdbcType=VARCHAR}, 
+      #{acctBranchBank,jdbcType=VARCHAR}, #{acctName,jdbcType=VARCHAR}, #{acctNo,jdbcType=VARCHAR}, 
+      #{acctSmsPhone,jdbcType=VARCHAR}, #{acctState,jdbcType=DECIMAL}, #{acctChargebacks,jdbcType=VARCHAR}, 
+      #{acctBankCode,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{createOperId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{provinceCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{extJson,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.BankAcct">
+    insert into OPS_ODS_CHL_BANK_ACCT_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="acctType != null">
+        ACCT_TYPE,
+      </if>
+      <if test="acctBank != null">
+        ACCT_BANK,
+      </if>
+      <if test="acctBranchBank != null">
+        ACCT_BRANCH_BANK,
+      </if>
+      <if test="acctName != null">
+        ACCT_NAME,
+      </if>
+      <if test="acctNo != null">
+        ACCT_NO,
+      </if>
+      <if test="acctSmsPhone != null">
+        ACCT_SMS_PHONE,
+      </if>
+      <if test="acctState != null">
+        ACCT_STATE,
+      </if>
+      <if test="acctChargebacks != null">
+        ACCT_CHARGEBACKS,
+      </if>
+      <if test="acctBankCode != null">
+        ACCT_BANK_CODE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="provinceCode != null">
+        PROVINCE_CODE,
+      </if>
+      <if test="cityCode != null">
+        CITY_CODE,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctType != null">
+        #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="acctBank != null">
+        #{acctBank,jdbcType=VARCHAR},
+      </if>
+      <if test="acctBranchBank != null">
+        #{acctBranchBank,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="acctNo != null">
+        #{acctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acctSmsPhone != null">
+        #{acctSmsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="acctState != null">
+        #{acctState,jdbcType=DECIMAL},
+      </if>
+      <if test="acctChargebacks != null">
+        #{acctChargebacks,jdbcType=VARCHAR},
+      </if>
+      <if test="acctBankCode != null">
+        #{acctBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null">
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.channel.sys.etl.dao.ChlShopMapper">
+  <resultMap id="BaseResultMap" type="com.ai.channel.sys.etl.model.ChlShop">
+    <result column="CHANNEL_ID" jdbcType="DECIMAL" property="channelId" />
+    <result column="OPEN_TIME" jdbcType="DATE" property="openTime" />
+    <result column="BUSINESS_AREA" jdbcType="DECIMAL" property="businessArea" />
+    <result column="BACKGROUND_AREA" jdbcType="DECIMAL" property="backgroundArea" />
+    <result column="SHOP_ROOM_NUM" jdbcType="DECIMAL" property="shopRoomNum" />
+    <result column="SHOP_AREA" jdbcType="DECIMAL" property="shopArea" />
+    <result column="FLOOR_NUM" jdbcType="DECIMAL" property="floorNum" />
+    <result column="BUSINESS_DESK_NUM" jdbcType="DECIMAL" property="businessDeskNum" />
+    <result column="BUSINESS_PERSON_NUM" jdbcType="DECIMAL" property="businessPersonNum" />
+    <result column="PANORAMA_PIC_MONGODB_ID" jdbcType="VARCHAR" property="panoramaPicMongodbId" />
+    <result column="BACKGROUND_PIC_MONGODB_ID" jdbcType="VARCHAR" property="backgroundPicMongodbId" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="CREATE_OPER_ID" jdbcType="VARCHAR" property="createOperId" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+    <result column="UPDATE_OPER_ID" jdbcType="VARCHAR" property="updateOperId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="EXT_JSON" jdbcType="VARCHAR" property="extJson" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ai.channel.sys.etl.model.ChlShop">
+    insert into OPS_ODS_CHL_SHOP_D (CHANNEL_ID, OPEN_TIME, BUSINESS_AREA, 
+      BACKGROUND_AREA, SHOP_ROOM_NUM, SHOP_AREA, 
+      FLOOR_NUM, BUSINESS_DESK_NUM, BUSINESS_PERSON_NUM, 
+      PANORAMA_PIC_MONGODB_ID, BACKGROUND_PIC_MONGODB_ID, 
+      STATE, CREATE_TIME, CREATE_OPER_ID, 
+      UPDATE_TIME, UPDATE_OPER_ID, REMARK, 
+      EXT_JSON)
+    values (#{channelId,jdbcType=DECIMAL}, #{openTime,jdbcType=DATE}, #{businessArea,jdbcType=DECIMAL}, 
+      #{backgroundArea,jdbcType=DECIMAL}, #{shopRoomNum,jdbcType=DECIMAL}, #{shopArea,jdbcType=DECIMAL}, 
+      #{floorNum,jdbcType=DECIMAL}, #{businessDeskNum,jdbcType=DECIMAL}, #{businessPersonNum,jdbcType=DECIMAL}, 
+      #{panoramaPicMongodbId,jdbcType=VARCHAR}, #{backgroundPicMongodbId,jdbcType=VARCHAR}, 
+      #{state,jdbcType=DECIMAL}, #{createTime,jdbcType=DATE}, #{createOperId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{updateOperId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{extJson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.channel.sys.etl.model.ChlShop">
+    insert into OPS_ODS_CHL_SHOP_D
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME,
+      </if>
+      <if test="businessArea != null">
+        BUSINESS_AREA,
+      </if>
+      <if test="backgroundArea != null">
+        BACKGROUND_AREA,
+      </if>
+      <if test="shopRoomNum != null">
+        SHOP_ROOM_NUM,
+      </if>
+      <if test="shopArea != null">
+        SHOP_AREA,
+      </if>
+      <if test="floorNum != null">
+        FLOOR_NUM,
+      </if>
+      <if test="businessDeskNum != null">
+        BUSINESS_DESK_NUM,
+      </if>
+      <if test="businessPersonNum != null">
+        BUSINESS_PERSON_NUM,
+      </if>
+      <if test="panoramaPicMongodbId != null">
+        PANORAMA_PIC_MONGODB_ID,
+      </if>
+      <if test="backgroundPicMongodbId != null">
+        BACKGROUND_PIC_MONGODB_ID,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createOperId != null">
+        CREATE_OPER_ID,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateOperId != null">
+        UPDATE_OPER_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="extJson != null">
+        EXT_JSON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelId != null">
+        #{channelId,jdbcType=DECIMAL},
+      </if>
+      <if test="openTime != null">
+        #{openTime,jdbcType=DATE},
+      </if>
+      <if test="businessArea != null">
+        #{businessArea,jdbcType=DECIMAL},
+      </if>
+      <if test="backgroundArea != null">
+        #{backgroundArea,jdbcType=DECIMAL},
+      </if>
+      <if test="shopRoomNum != null">
+        #{shopRoomNum,jdbcType=DECIMAL},
+      </if>
+      <if test="shopArea != null">
+        #{shopArea,jdbcType=DECIMAL},
+      </if>
+      <if test="floorNum != null">
+        #{floorNum,jdbcType=DECIMAL},
+      </if>
+      <if test="businessDeskNum != null">
+        #{businessDeskNum,jdbcType=DECIMAL},
+      </if>
+      <if test="businessPersonNum != null">
+        #{businessPersonNum,jdbcType=DECIMAL},
+      </if>
+      <if test="panoramaPicMongodbId != null">
+        #{panoramaPicMongodbId,jdbcType=VARCHAR},
+      </if>
+      <if test="backgroundPicMongodbId != null">
+        #{backgroundPicMongodbId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createOperId != null">
+        #{createOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateOperId != null">
+        #{updateOperId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="extJson != null">
+        #{extJson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
